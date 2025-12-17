@@ -17,7 +17,7 @@
 
     body {
       height: 100vh;
-      background: radial-gradient(circle at top, #0f2027, #000);
+      background: radial-gradient(circle at top, #1a0000, #000);
       overflow: hidden;
       display: flex;
       justify-content: center;
@@ -37,23 +37,24 @@
       animation: fadeIn 1.5s ease;
     }
 
+    /* LOGO GIF */
     .logo {
-      width: 120px;
+      width: 140px;
       margin-bottom: 25px;
       animation: float 3s ease-in-out infinite;
-      filter: drop-shadow(0 0 15px #00ffcc);
+      filter: drop-shadow(0 0 20px #ff2a2a);
     }
 
     .check {
       width: 130px;
       height: 130px;
       border-radius: 50%;
-      background: linear-gradient(135deg, #00ffcc, #00bfff);
+      background: linear-gradient(135deg, #ff2a2a, #ff0000);
       display: flex;
       align-items: center;
       justify-content: center;
       margin: 0 auto 30px;
-      box-shadow: 0 0 40px #00ffcc;
+      box-shadow: 0 0 45px rgba(255, 0, 0, 0.9);
       animation: pulse 2s infinite;
     }
 
@@ -68,7 +69,7 @@
       font-size: 2.6rem;
       letter-spacing: 2px;
       text-transform: uppercase;
-      text-shadow: 0 0 20px rgba(0, 255, 204, 0.6);
+      text-shadow: 0 0 25px rgba(255, 0, 0, 0.8);
     }
 
     p {
@@ -77,28 +78,30 @@
       opacity: 0.85;
     }
 
+    /* BOTÃO */
     .btn {
       display: inline-block;
-      margin-top: 30px;
-      padding: 14px 40px;
+      margin-top: 35px;
+      padding: 15px 45px;
       font-size: 1rem;
       text-decoration: none;
-      color: #000;
-      background: linear-gradient(135deg, #00ffcc, #00bfff);
+      color: #fff;
+      background: linear-gradient(135deg, #ff2a2a, #b30000);
       border-radius: 40px;
       font-weight: 600;
-      box-shadow: 0 0 25px rgba(0, 255, 204, 0.6);
+      letter-spacing: 1px;
+      box-shadow: 0 0 30px rgba(255, 0, 0, 0.7);
       transition: transform 0.3s, box-shadow 0.3s;
     }
 
     .btn:hover {
-      transform: scale(1.07);
-      box-shadow: 0 0 45px rgba(0, 255, 204, 0.9);
+      transform: scale(1.08);
+      box-shadow: 0 0 55px rgba(255, 0, 0, 1);
     }
 
     @keyframes pulse {
       0% { transform: scale(1); }
-      50% { transform: scale(1.08); }
+      50% { transform: scale(1.1); }
       100% { transform: scale(1); }
     }
 
@@ -118,7 +121,7 @@
   <canvas id="particles"></canvas>
 
   <div class="container">
-    <!-- LOGO -->
+    <!-- LOGO GIF -->
     <img src="icon-gif.gif" alt="Logo" class="logo">
 
     <div class="check"></div>
@@ -126,7 +129,6 @@
     <h1>Verificado com Sucesso</h1>
     <p>Sua verificação foi concluída corretamente.</p>
 
-    <!-- BOTÃO -->
     <a href="https://discord.gg/SEU_LINK_AQUI" class="btn">
       Voltar ao Servidor
     </a>
@@ -146,8 +148,8 @@
         this.x = Math.random() * canvas.width;
         this.y = Math.random() * canvas.height;
         this.size = Math.random() * 2 + 1;
-        this.speedX = (Math.random() - 0.5) * 0.7;
-        this.speedY = (Math.random() - 0.5) * 0.7;
+        this.speedX = (Math.random() - 0.5) * 0.8;
+        this.speedY = (Math.random() - 0.5) * 0.8;
       }
       update() {
         this.x += this.speedX;
@@ -156,7 +158,7 @@
         if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
       }
       draw() {
-        ctx.fillStyle = "rgba(0, 255, 204, 0.7)";
+        ctx.fillStyle = "rgba(255, 0, 0, 0.7)";
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
         ctx.fill();
@@ -164,7 +166,7 @@
     }
 
     function init() {
-      for (let i = 0; i < 120; i++) {
+      for (let i = 0; i < 130; i++) {
         particles.push(new Particle());
       }
     }
